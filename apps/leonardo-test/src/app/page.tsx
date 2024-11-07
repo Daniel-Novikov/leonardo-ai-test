@@ -1,18 +1,6 @@
-import styled from '@emotion/styled';
-
-const StyledPage = styled.div`
-  .page {
-  }
-`;
-
 export default function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.@emotion/styled file.
-   */
   return (
-    <StyledPage>
+    <div>
       <div className="wrapper">
         <div className="container">
           <div id="welcome">
@@ -469,6 +457,6 @@ export default function Index() {
           </p>
         </div>
       </div>
-    </StyledPage>
+    </div>
   );
 }

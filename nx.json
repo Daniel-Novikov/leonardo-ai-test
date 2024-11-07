@@ -40,8 +40,13 @@
   "generators": {
     "@nx/next": {
       "application": {
-        "style": "@emotion/styled",
+        "style": "none",
         "linter": "eslint"
+      },
+      "library": {
+        "style": "none",
+        "linter": "eslint",
+        "directory": "libs/ui"
       }
     }
   }
