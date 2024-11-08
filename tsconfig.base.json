@@ -31,6 +31,10 @@
       ],
       "@leonardo/profile-setup-page/server": [
         "libs/feature/profile-setup-page/src/server.ts"
+      ],
+      "@leonardo/profile-store": ["libs/util/profile-store/src/index.ts"],
+      "@leonardo/profile-store/server": [
+        "libs/util/profile-store/src/server.ts"
       ]
     }
   },
