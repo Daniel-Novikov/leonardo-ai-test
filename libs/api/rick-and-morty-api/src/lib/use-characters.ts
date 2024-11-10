@@ -34,7 +34,6 @@ export function useCharacters() {
     CharactersVars
   >(GET_CHARACTERS, {
     variables: { page },
-    notifyOnNetworkStatusChange: true,
   });
 
   const goToPage = useCallback(
@@ -45,16 +44,13 @@ export function useCharacters() {
     [router, refetch]
   );
 
-  // useEffect(() => {
-  //   refetch({ page });
-  // }, [page, refetch]);
-
   return {
     loading,
     error,
     characters: data?.characters.results,
     pageInfo: data?.characters.info,
     page,
+    pageSize: 20,
     goToPage,
   };
 }
