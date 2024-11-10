@@ -1,11 +1,19 @@
-import { Field as ChakraField } from '@chakra-ui/react'
-import { forwardRef } from 'react'
+import { Field as ChakraField, type FieldRootProps } from '@chakra-ui/react';
+import { ReactNode } from 'react';
 
-export const Field = forwardRef(function Field(props, ref) {
+type FieldProps = {
+  label?: string;
+  children: ReactNode;
+  helperText?: string;
+  errorText?: string;
+  optionalText?: string;
+} & FieldRootProps;
+
+export const Field = (props: FieldProps) => {
   const { label, children, helperText, errorText, optionalText, ...rest } =
-    props
+    props;
   return (
-    <ChakraField.Root ref={ref} {...rest}>
+    <ChakraField.Root {...rest}>
       {label && (
         <ChakraField.Label>
           {label}
@@ -18,5 +26,5 @@ export const Field = forwardRef(function Field(props, ref) {
       )}
       {errorText && <ChakraField.ErrorText>{errorText}</ChakraField.ErrorText>}
     </ChakraField.Root>
-  )
-})
+  );
+};

@@ -15,27 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@leonardo/chakra-ui/*": ["libs/ui/chakra-ui/src/*"],
+      "@leonardo/chakra-ui": ["libs/ui/chakra-ui/src/index.ts"],
       "@leonardo/information-page": [
         "libs/feature/information-page/src/index.ts"
       ],
-      "@leonardo/information-page/server": [
-        "libs/feature/information-page/src/server.ts"
-      ],
       "@leonardo/profile-page": ["libs/feature/profile-page/src/index.ts"],
-      "@leonardo/profile-page/server": [
-        "libs/feature/profile-page/src/server.ts"
-      ],
+
       "@leonardo/profile-setup-page": [
         "libs/feature/profile-setup-page/src/index.ts"
       ],
-      "@leonardo/profile-setup-page/server": [
-        "libs/feature/profile-setup-page/src/server.ts"
-      ],
-      "@leonardo/profile-store": ["libs/util/profile-store/src/index.ts"],
-      "@leonardo/profile-store/server": [
-        "libs/util/profile-store/src/server.ts"
-      ]
+
+      "@leonardo/profile-store": ["libs/util/profile-store/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

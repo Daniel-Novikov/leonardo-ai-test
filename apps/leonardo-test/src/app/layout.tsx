@@ -1,4 +1,4 @@
-import { Provider } from '@leonardo/chakra-ui/provider';
+import { Provider } from '@leonardo/chakra-ui';
 
 export const metadata = {
   title: 'Welcome to leonardo-test',
