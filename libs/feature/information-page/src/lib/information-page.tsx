@@ -5,11 +5,9 @@ import {
   Text,
   Grid,
   GridItem,
-  Box,
   Stack,
   HStack,
 } from '@chakra-ui/react';
-import Image from 'next/image';
 
 import {
   PaginationItems,
@@ -18,6 +16,7 @@ import {
   PaginationRoot,
 } from '@leonardo/chakra-ui';
 
+import { CharacterCard } from '@leonardo/character-card';
 import { useCharacters } from '@leonardo/rick-and-morty-api';
 
 export function InformationPage() {
@@ -34,44 +33,15 @@ export function InformationPage() {
   if (error) return <Text>Error loading characters</Text>;
 
   return (
-    <Stack>
+    <Stack p="6">
       <Grid templateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap={6}>
         {characters?.map((character) => (
           <GridItem key={character.id}>
-            <Box
-              position="relative"
-              borderRadius="md"
-              boxShadow="lg"
-              overflow="hidden"
-              bg="gray.200"
-            >
-              <Image
-                src={character.image}
-                alt={character.name}
-                layout="responsive"
-                width={500}
-                height={500}
-                objectFit="cover"
-                priority
-                quality={90}
-              />
-              <Box
-                position="absolute"
-                bottom="0"
-                left="0"
-                right="0"
-                p={4}
-                bg="linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0))"
-                color="white"
-              >
-                <Text fontSize="xl" fontWeight="bold">
-                  {character.name}
-                </Text>
-                <Text fontSize="sm">
-                  {character.species} - {character.status}
-                </Text>
-              </Box>
-            </Box>
+            <CharacterCard
+              image={character.image}
+              name={character.name}
+              description={`${character.species} - ${character.status}`}
+            />
           </GridItem>
         ))}
       </Grid>

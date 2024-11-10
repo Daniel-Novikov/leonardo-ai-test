@@ -16,6 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@leonardo/chakra-ui": ["libs/ui/chakra-ui/src/index.ts"],
+      "@leonardo/character-card": ["libs/ui/character-card/src/index.ts"],
+      "@leonardo/character-card/server": [
+        "libs/ui/character-card/src/server.ts"
+      ],
       "@leonardo/header": ["libs/feature/header/src/index.ts"],
       "@leonardo/header/server": ["libs/feature/header/src/server.ts"],
       "@leonardo/information-page": [
