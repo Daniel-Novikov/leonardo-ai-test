@@ -1,8 +1,8 @@
 'use client';
 import {
-  Spinner,
-  Center,
   Text,
+  Center,
+  Skeleton,
   Grid,
   GridItem,
   Stack,
@@ -30,14 +30,15 @@ export function InformationPage() {
   const { loading, error, characters, pageInfo, pageSize, page, goToPage } =
     useCharacters();
 
-  if (loading)
+  if (error)
     return (
-      <Center>
-        <Spinner />
+      <Center height="80vh">
+        <Stack justifyContent="center" textAlign="center">
+          <Text fontSize="xl">Error loading characters</Text>
+          <Text>Please reload the page</Text>
+        </Stack>
       </Center>
     );
-
-  if (error) return <Text>Error loading characters</Text>;
 
   return (
     <Stack p="6" pb="20">
@@ -45,6 +46,7 @@ export function InformationPage() {
         {characters?.map((character) => (
           <GridItem key={character.id}>
             <CharacterCard
+              loading={loading}
               onClick={() => setSelectedCharacterId(character.id)}
               image={character.image}
               name={character.name}
@@ -53,29 +55,32 @@ export function InformationPage() {
           </GridItem>
         ))}
       </Grid>
-      <Center position="fixed" left="0" width="100%" bottom="3">
-        <Box
-          bgColor="rgba(255, 255, 255, .6);"
-          backdropFilter="blur(12px)"
-          px="4"
-          py="2"
-          borderRadius="full"
-        >
-          <PaginationRoot
-            count={pageInfo?.count}
-            pageSize={pageSize}
-            page={page}
-            onPageChange={(e: { page: number }) => goToPage(e.page)}
-            variant="subtle"
+
+      {pageInfo ? (
+        <Center position="fixed" left="0" width="100%" bottom="3">
+          <Box
+            bgColor="rgba(255, 255, 255, .6);"
+            backdropFilter="blur(12px)"
+            px="4"
+            py="2"
+            borderRadius="full"
           >
-            <HStack>
-              <PaginationPrevTrigger />
-              <PaginationItems />
-              <PaginationNextTrigger />
-            </HStack>
-          </PaginationRoot>
-        </Box>
-      </Center>
+            <PaginationRoot
+              count={pageInfo?.count}
+              pageSize={pageSize}
+              page={page}
+              onPageChange={(e: { page: number }) => goToPage(e.page)}
+              variant="subtle"
+            >
+              <HStack>
+                <PaginationPrevTrigger />
+                <PaginationItems />
+                <PaginationNextTrigger />
+              </HStack>
+            </PaginationRoot>
+          </Box>
+        </Center>
+      ) : null}
 
       {selectedCharacterId ? (
         <CharacterDialog

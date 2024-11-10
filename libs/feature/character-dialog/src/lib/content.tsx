@@ -2,25 +2,52 @@
 
 import {
   Stack,
-  Tag,
   Box,
   Image,
   HStack,
   Table,
   Heading,
+  Text,
+  Skeleton,
 } from '@chakra-ui/react';
 import NextImage from 'next/image';
 
 import { CharacterDetails } from '@leonardo/rick-and-morty-api';
+import { ApolloError } from '@apollo/client';
 
 type ContentProps = {
-  character: CharacterDetails;
+  character?: CharacterDetails;
+  loading?: boolean;
+  error?: ApolloError;
 };
 
-export const Content = ({ character }: ContentProps) => {
+export const Content = ({ character, error, loading }: ContentProps) => {
+  if (error) return <Text>Error: {error.message}</Text>;
+
+  const items = [
+    { label: 'Status:', value: character?.status },
+    { label: 'Species:', value: character?.species },
+    { label: 'Type:', value: character?.type || 'N/A' },
+    { label: 'Gender:', value: character?.gender },
+    { label: 'Origin:', value: character?.origin.name },
+    { label: 'Location:', value: character?.location.name },
+    {
+      label: 'Episodes:',
+      value: (
+        <Box as="ul" listStyleType="disc">
+          {character?.episode.map((ep, index) => (
+            <li key={index}>
+              {ep.name} ({ep.episode})
+            </li>
+          ))}
+        </Box>
+      ),
+    },
+  ];
+
   return (
     <HStack alignItems="start" gap="4">
-      <Stack gap="2">
+      <Stack gap="2" flex="0 0 40%">
         <Table.Root variant="outline">
           <Table.Header>
             <Table.Row>
@@ -30,54 +57,40 @@ export const Content = ({ character }: ContentProps) => {
             </Table.Row>
           </Table.Header>
           <Table.Body verticalAlign="baseline">
-            <Table.Row>
-              <Table.Cell fontWeight="bold">Status:</Table.Cell>
-              <Table.Cell>{character.status}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell fontWeight="bold">Species:</Table.Cell>
-              <Table.Cell>{character.species}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell fontWeight="bold">Type:</Table.Cell>
-              <Table.Cell>{character.type || 'N/A'}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell fontWeight="bold">Gender:</Table.Cell>
-              <Table.Cell>{character.gender}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell fontWeight="bold">Origin:</Table.Cell>
-              <Table.Cell>{character.origin.name}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell fontWeight="bold">Location:</Table.Cell>
-              <Table.Cell>{character.location.name}</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell fontWeight="bold">Episodes:</Table.Cell>
-              <Table.Cell>
-                <Box as="ul" listStyleType="disc">
-                  {character.episode.map((ep, index) => (
-                    <li key={index}>
-                      {ep.name} ({ep.episode})
-                    </li>
-                  ))}
-                </Box>
-              </Table.Cell>
-            </Table.Row>
+            {items.map((item) => (
+              <Table.Row>
+                <Table.Cell fontWeight="bold">{item.label}</Table.Cell>
+                <Table.Cell>
+                  {loading ? (
+                    <Skeleton width="100px" height="10px" />
+                  ) : (
+                    item.value
+                  )}
+                </Table.Cell>
+              </Table.Row>
+            ))}
           </Table.Body>
         </Table.Root>
       </Stack>
-      <Image asChild borderRadius="md">
-        <NextImage
-          src={character.image}
-          alt={character.name}
-          width={500}
-          height={500}
-          objectFit="cover"
-        />
-      </Image>
+      {loading ? (
+        <Skeleton boxSize="300px" />
+      ) : (
+        <Image asChild borderRadius="md" bgColor="gray.100">
+          {character?.image ? (
+            <NextImage
+              src={character.image}
+              alt={character?.name || 'Character image'}
+              width={500}
+              height={500}
+              objectFit="cover"
+              priority
+              quality={90}
+              placeholder="blur"
+              blurDataURL="data:iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8WA8AAkcBYnr93DQAAAAASUVORK5CYII="
+            />
+          ) : null}
+        </Image>
+      )}
     </HStack>
   );
 };

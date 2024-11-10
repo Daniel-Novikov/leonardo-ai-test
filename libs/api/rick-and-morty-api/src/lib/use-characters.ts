@@ -29,7 +29,7 @@ export function useCharacters() {
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get('page') || '1', 10);
 
-  const { loading, error, data, refetch } = useQuery<
+  const { loading, error, data, previousData, refetch } = useQuery<
     CharactersData,
     CharactersVars
   >(GET_CHARACTERS, {
@@ -46,11 +46,13 @@ export function useCharacters() {
     [router, refetch]
   );
 
+  const persistentData = loading ? previousData : data;
+
   return {
     loading,
     error,
-    characters: data?.characters?.results,
-    pageInfo: data?.characters?.info,
+    characters: persistentData?.characters.results,
+    pageInfo: persistentData?.characters.info,
     page,
     pageSize: 20,
     goToPage,
