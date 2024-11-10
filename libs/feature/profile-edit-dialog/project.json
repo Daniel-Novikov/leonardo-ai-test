@@ -1,0 +1,9 @@
+{
+  "name": "profile-edit-dialog",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/feature/profile-edit-dialog/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project profile-edit-dialog --web",
+  "targets": {}
+}

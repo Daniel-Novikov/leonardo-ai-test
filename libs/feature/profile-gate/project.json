@@ -1,0 +1,9 @@
+{
+  "name": "profile-gate",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/feature/profile-gate/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project profile-gate --web",
+  "targets": {}
+}

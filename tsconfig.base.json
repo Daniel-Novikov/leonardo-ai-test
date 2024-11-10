@@ -1,0 +1,44 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@leonardo/chakra-ui": ["libs/ui/chakra-ui/src/index.ts"],
+      "@leonardo/character-card": ["libs/ui/character-card/src/index.ts"],
+      "@leonardo/character-dialog": [
+        "libs/feature/character-dialog/src/index.ts"
+      ],
+      "@leonardo/header": ["libs/feature/header/src/index.ts"],
+      "@leonardo/information-page": [
+        "libs/feature/information-page/src/index.ts"
+      ],
+      "@leonardo/profile-edit-dialog": [
+        "libs/feature/profile-edit-dialog/src/index.ts"
+      ],
+      "@leonardo/profile-form": ["libs/feature/profile-form/src/index.ts"],
+      "@leonardo/profile-gate": ["libs/feature/profile-gate/src/index.ts"],
+      "@leonardo/profile-setup-page": [
+        "libs/feature/profile-setup-page/src/index.ts"
+      ],
+      "@leonardo/profile-store": ["libs/util/profile-store/src/index.ts"],
+      "@leonardo/provider": ["libs/feature/provider/src/index.ts"],
+      "@leonardo/rick-and-morty-api": [
+        "libs/api/rick-and-morty-api/src/index.ts"
+      ],
+      "@leonardo/theme": ["libs/util/theme/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
