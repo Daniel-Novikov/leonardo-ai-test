@@ -1,6 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { CharactersData, CharactersVars } from './types';
 
@@ -35,7 +35,6 @@ export function useCharacters() {
   >(GET_CHARACTERS, {
     variables: { page },
     fetchPolicy: 'cache-and-network',
-    notifyOnNetworkStatusChange: true,
   });
 
   const goToPage = useCallback(

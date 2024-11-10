@@ -1,5 +1,8 @@
 import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react';
 
+/**
+ * Overriding default chakra-ui theme
+ */
 const config = defineConfig({
   globalCss: {
     'html, #root': {

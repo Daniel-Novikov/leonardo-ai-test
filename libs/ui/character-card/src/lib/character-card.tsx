@@ -11,13 +11,18 @@ type CharacterCardProps = {
   loading?: boolean;
 };
 
-export function CharacterCard({
+/**
+ * CharacterCard component displays a card with character image, name, and description.
+ * Supports loading state with Skeleton component
+ */
+export const CharacterCard = ({
   image,
   name,
   description,
   onClick,
   loading,
-}: CharacterCardProps) {
+}: CharacterCardProps) => {
+  console.log('render');
   return (
     <Skeleton asChild loading={loading}>
       <Card.Root
@@ -56,4 +61,4 @@ export function CharacterCard({
       </Card.Root>
     </Skeleton>
   );
-}
+};

@@ -12,6 +12,12 @@ type ProfileStore = {
   setProfile: (data: ProfileData) => void;
 };
 
+/**
+ * Zustand store for managing and persisting user profile data.
+ *
+ * - Uses Zustand's `persist` middleware to store profile data in Local Storage.
+ * - `isProfileLoaded` flag is set to true after the profile is rehydrated from Local Storage.
+ */
 export const useProfileStore = create<ProfileStore>()(
   persist(
     (set) => ({

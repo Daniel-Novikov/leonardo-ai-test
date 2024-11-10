@@ -13,6 +13,10 @@ import {
 import { useProfileStore } from '@leonardo/profile-store';
 import { ProfileEditDialog } from '@leonardo/profile-edit-dialog';
 
+/**
+ * Sticky header to display at the top of the page.
+ * Display page name and profile information
+ */
 export const Header = () => {
   const profile = useProfileStore((state) => state.profile);
   const [open, setOpen] = useState(false);

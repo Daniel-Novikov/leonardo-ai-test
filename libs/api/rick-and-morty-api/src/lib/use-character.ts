@@ -32,6 +32,7 @@ export function useCharacter(characterId: string) {
     {
       variables: { id: characterId },
       skip: !characterId,
+      fetchPolicy: 'cache-and-network',
     }
   );
 

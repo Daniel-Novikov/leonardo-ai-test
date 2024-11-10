@@ -71,7 +71,6 @@ type PaginationPageTextProps = {
   format?: 'short' | 'compact' | 'full';
 };
 
-// PaginationRoot component
 export const PaginationRoot = (props: PaginationRootProps) => {
   const { size = 'sm', variant = 'outline', getHref, ...rest } = props;
   return (
@@ -94,7 +93,6 @@ export const PaginationEllipsis = (props: PaginationEllipsisProps) => {
   );
 };
 
-// PaginationItem component
 export const PaginationItem = (props: PaginationItemProps) => {
   const { page } = usePaginationContext();
   const { size, variantMap, getHref } = useRootProps();
@@ -146,7 +144,6 @@ export const PaginationPrevTrigger = (props: PaginationPrevNextProps) => {
   );
 };
 
-// PaginationNextTrigger component
 export const PaginationNextTrigger = (props: PaginationPrevNextProps) => {
   const { size, variantMap, getHref } = useRootProps();
   const { nextPage } = usePaginationContext();
@@ -175,7 +172,6 @@ export const PaginationNextTrigger = (props: PaginationPrevNextProps) => {
   );
 };
 
-// PaginationItems component
 export const PaginationItems = (props: BoxProps) => {
   return (
     <ChakraPagination.Context>
@@ -192,7 +188,6 @@ export const PaginationItems = (props: BoxProps) => {
   );
 };
 
-// PaginationPageText component
 export const PaginationPageText = forwardRef<
   HTMLDivElement,
   PaginationPageTextProps
