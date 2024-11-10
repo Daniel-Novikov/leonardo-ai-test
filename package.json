@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "npx nx dev leonardo-test",
-    "build": "npx nx build leonardo-test"
+    "build": "npx nx build leonardo-test",
+    "graph": "npx nx graph"
   },
   "private": true,
   "dependencies": {

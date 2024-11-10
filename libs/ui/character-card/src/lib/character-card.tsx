@@ -22,7 +22,6 @@ export const CharacterCard = ({
   onClick,
   loading,
 }: CharacterCardProps) => {
-  console.log('render');
   return (
     <Skeleton asChild loading={loading}>
       <Card.Root

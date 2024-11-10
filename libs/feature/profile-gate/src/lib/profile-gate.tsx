@@ -9,6 +9,9 @@ type ProfileGateProps = {
   children: ReactNode;
 };
 
+/**
+ * Prevents access to all pages, unless "profile" information has been filled
+ */
 export const ProfileGate = ({ children }: ProfileGateProps) => {
   const profile = useProfileStore((state) => state.profile);
   const isProfileLoaded = useProfileStore((state) => state.isProfileLoaded);

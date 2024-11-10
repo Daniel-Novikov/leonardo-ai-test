@@ -24,7 +24,7 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-export function useCharacters() {
+export const useCharacters = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get('page') || '1', 10);
@@ -56,4 +56,4 @@ export function useCharacters() {
     pageSize: 20,
     goToPage,
   };
-}
+};

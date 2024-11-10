@@ -12,6 +12,11 @@ export const profileSchema = z.object({
 
 export type ProfileFormValues = z.infer<typeof profileSchema>;
 
+/**
+ * Profile form
+ * Re-usable profile form, that relies on react-hook-form context
+ * Provides the basic fields for the form.
+ */
 export const ProfileForm = () => {
   const {
     register,

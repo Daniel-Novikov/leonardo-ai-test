@@ -14,6 +14,7 @@ type ProfileEditDialogProps = {
   open: boolean;
   onClose(): void;
 };
+
 export const ProfileEditDialog = ({
   open,
   onClose,

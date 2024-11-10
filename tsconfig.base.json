@@ -28,10 +28,7 @@
         "libs/feature/profile-edit-dialog/src/index.ts"
       ],
       "@leonardo/profile-form": ["libs/feature/profile-form/src/index.ts"],
-
       "@leonardo/profile-gate": ["libs/feature/profile-gate/src/index.ts"],
-
-      "@leonardo/profile-page": ["libs/feature/profile-page/src/index.ts"],
       "@leonardo/profile-setup-page": [
         "libs/feature/profile-setup-page/src/index.ts"
       ],

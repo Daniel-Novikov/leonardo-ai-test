@@ -20,4 +20,11 @@ To create a production bundle:
 
 ```sh
 yarn build
+
+```
+
+To view project graph:
+
+```sh
+yarn graph
 ```

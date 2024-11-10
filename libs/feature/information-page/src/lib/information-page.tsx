@@ -22,7 +22,7 @@ import { CharacterCard } from '@leonardo/character-card';
 import { useCharacters } from '@leonardo/rick-and-morty-api';
 import { CharacterDialog } from '@leonardo/character-dialog';
 
-export function InformationPage() {
+export const InformationPage = () => {
   const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(
     null
   );
@@ -97,4 +97,4 @@ export function InformationPage() {
       ) : null}
     </Stack>
   );
-}
+};
