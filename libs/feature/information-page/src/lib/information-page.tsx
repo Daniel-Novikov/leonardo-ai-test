@@ -7,6 +7,7 @@ import {
   GridItem,
   Stack,
   HStack,
+  Box,
 } from '@chakra-ui/react';
 
 import {
@@ -39,7 +40,7 @@ export function InformationPage() {
   if (error) return <Text>Error loading characters</Text>;
 
   return (
-    <Stack p="6">
+    <Stack p="6" pb="20">
       <Grid templateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap={6}>
         {characters?.map((character) => (
           <GridItem key={character.id}>
@@ -52,20 +53,29 @@ export function InformationPage() {
           </GridItem>
         ))}
       </Grid>
-
-      <PaginationRoot
-        count={pageInfo?.count}
-        pageSize={pageSize}
-        page={page}
-        onPageChange={(e: { page: number }) => goToPage(e.page)}
-        variant="solid"
-      >
-        <HStack>
-          <PaginationPrevTrigger />
-          <PaginationItems />
-          <PaginationNextTrigger />
-        </HStack>
-      </PaginationRoot>
+      <Center position="fixed" left="0" width="100%" bottom="3">
+        <Box
+          bgColor="rgba(255, 255, 255, .6);"
+          backdropFilter="blur(12px)"
+          px="4"
+          py="2"
+          borderRadius="full"
+        >
+          <PaginationRoot
+            count={pageInfo?.count}
+            pageSize={pageSize}
+            page={page}
+            onPageChange={(e: { page: number }) => goToPage(e.page)}
+            variant="subtle"
+          >
+            <HStack>
+              <PaginationPrevTrigger />
+              <PaginationItems />
+              <PaginationNextTrigger />
+            </HStack>
+          </PaginationRoot>
+        </Box>
+      </Center>
 
       {selectedCharacterId ? (
         <CharacterDialog
