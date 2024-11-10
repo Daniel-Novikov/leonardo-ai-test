@@ -16,11 +16,16 @@ import {
   PaginationRoot,
 } from '@leonardo/chakra-ui';
 
+import { useState } from 'react';
+
 import { CharacterCard } from '@leonardo/character-card';
 import { useCharacters } from '@leonardo/rick-and-morty-api';
 import { CharacterDialog } from '@leonardo/character-dialog';
 
 export function InformationPage() {
+  const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(
+    null
+  );
   const { loading, error, characters, pageInfo, pageSize, page, goToPage } =
     useCharacters();
 
@@ -39,6 +44,7 @@ export function InformationPage() {
         {characters?.map((character) => (
           <GridItem key={character.id}>
             <CharacterCard
+              onClick={() => setSelectedCharacterId(character.id)}
               image={character.image}
               name={character.name}
               description={`${character.species} - ${character.status}`}
@@ -61,7 +67,12 @@ export function InformationPage() {
         </HStack>
       </PaginationRoot>
 
-      <CharacterDialog />
+      {selectedCharacterId ? (
+        <CharacterDialog
+          characterId={selectedCharacterId}
+          onClose={() => setSelectedCharacterId(null)}
+        />
+      ) : null}
     </Stack>
   );
 }

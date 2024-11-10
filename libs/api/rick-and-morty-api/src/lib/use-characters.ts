@@ -34,6 +34,8 @@ export function useCharacters() {
     CharactersVars
   >(GET_CHARACTERS, {
     variables: { page },
+    fetchPolicy: 'cache-and-network',
+    notifyOnNetworkStatusChange: true,
   });
 
   const goToPage = useCallback(
@@ -47,8 +49,8 @@ export function useCharacters() {
   return {
     loading,
     error,
-    characters: data?.characters.results,
-    pageInfo: data?.characters.info,
+    characters: data?.characters?.results,
+    pageInfo: data?.characters?.info,
     page,
     pageSize: 20,
     goToPage,

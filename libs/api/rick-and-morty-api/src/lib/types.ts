@@ -23,3 +23,24 @@ export type CharactersData = {
 export type CharactersVars = {
   page: number;
 };
+
+export type CharacterDetails = {
+  id: string;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  image: string;
+  origin: { name: string };
+  location: { name: string };
+  episode: Array<{ name: string; episode: string }>;
+};
+
+export type CharacterData = {
+  character: CharacterDetails;
+};
+
+export type CharacterVariables = {
+  id: string;
+};

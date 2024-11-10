@@ -1,27 +1,51 @@
-import { Dialog, Button } from '@chakra-ui/react';
-import { useState } from 'react';
+'use client';
 
-export function CharacterDialog() {
-  const [open, setOpen] = useState(false);
+import { Dialog, Button, Spinner, Text } from '@chakra-ui/react';
+
+import { useCharacter } from '@leonardo/rick-and-morty-api';
+import { CloseButton } from '@leonardo/chakra-ui';
+
+import { Content } from './content';
+
+type CharacterDialogProps = {
+  characterId: string;
+  onClose(): void;
+};
+
+export const CharacterDialog = ({
+  characterId,
+  onClose,
+}: CharacterDialogProps) => {
+  const { character, loading, error } = useCharacter(characterId);
+
+  const renderContent = () => {
+    if (loading) return <Spinner />;
+    if (error) return <Text>Error: {error.message}</Text>;
+
+    if (!character) return <Text>No character found</Text>;
+
+    return <Content character={character} />;
+  };
 
   return (
-    <Dialog.Root lazyMount open>
+    <Dialog.Root lazyMount open onOpenChange={() => onClose()} size="lg">
       <Dialog.Backdrop />
       <Dialog.Positioner>
         <Dialog.Content>
           <Dialog.Header>
-            <Dialog.Title>Dialog. Title</Dialog.Title>
+            <Dialog.Title>{character?.name}</Dialog.Title>
           </Dialog.Header>
-          <Dialog.Body></Dialog.Body>
-          <Dialog.Footer>
-            <Dialog.ActionTrigger asChild>
-              <Button variant="outline">Cancel</Button>
-            </Dialog.ActionTrigger>
-            <Button>Save</Button>
-          </Dialog.Footer>
-          <Dialog.CloseTrigger />
+          <Dialog.Body>{renderContent()}</Dialog.Body>
+
+          <CloseButton
+            as={Dialog.CloseTrigger}
+            position="absolute"
+            top="2"
+            insetEnd="2"
+            size="sm"
+          />
         </Dialog.Content>
       </Dialog.Positioner>
     </Dialog.Root>
   );
-}
+};
