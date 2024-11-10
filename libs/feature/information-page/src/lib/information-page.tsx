@@ -55,8 +55,23 @@ export const InformationPage = () => {
       </Center>
     );
 
+  const loadingMessage = loading
+    ? `Loading page ${page} of results`
+    : `Page ${page} loaded successfully`;
+
   return (
     <Stack p="6" pb="20">
+      {/* Aria-live region for screen reader announcements */}
+      <Box
+        aria-live="polite"
+        position="absolute"
+        width="0"
+        height="0"
+        overflow="hidden"
+      >
+        <Text>{loadingMessage}</Text>
+      </Box>
+
       <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
         {characterGridItems}
       </Grid>
