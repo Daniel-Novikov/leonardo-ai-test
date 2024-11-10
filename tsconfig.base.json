@@ -17,49 +17,30 @@
     "paths": {
       "@leonardo/chakra-ui": ["libs/ui/chakra-ui/src/index.ts"],
       "@leonardo/character-card": ["libs/ui/character-card/src/index.ts"],
-      "@leonardo/character-card/server": [
-        "libs/ui/character-card/src/server.ts"
-      ],
       "@leonardo/character-dialog": [
         "libs/feature/character-dialog/src/index.ts"
       ],
-      "@leonardo/character-dialog/server": [
-        "libs/feature/character-dialog/src/server.ts"
-      ],
       "@leonardo/header": ["libs/feature/header/src/index.ts"],
-      "@leonardo/header/server": ["libs/feature/header/src/server.ts"],
       "@leonardo/information-page": [
         "libs/feature/information-page/src/index.ts"
       ],
       "@leonardo/profile-edit-dialog": [
         "libs/feature/profile-edit-dialog/src/index.ts"
       ],
-      "@leonardo/profile-edit-dialog/server": [
-        "libs/feature/profile-edit-dialog/src/server.ts"
-      ],
       "@leonardo/profile-form": ["libs/feature/profile-form/src/index.ts"],
-      "@leonardo/profile-form/server": [
-        "libs/feature/profile-form/src/server.ts"
-      ],
+
       "@leonardo/profile-gate": ["libs/feature/profile-gate/src/index.ts"],
-      "@leonardo/profile-gate/server": [
-        "libs/feature/profile-gate/src/server.ts"
-      ],
+
       "@leonardo/profile-page": ["libs/feature/profile-page/src/index.ts"],
       "@leonardo/profile-setup-page": [
         "libs/feature/profile-setup-page/src/index.ts"
       ],
       "@leonardo/profile-store": ["libs/util/profile-store/src/index.ts"],
       "@leonardo/provider": ["libs/feature/provider/src/index.ts"],
-      "@leonardo/provider/server": ["libs/feature/provider/src/server.ts"],
       "@leonardo/rick-and-morty-api": [
         "libs/api/rick-and-morty-api/src/index.ts"
       ],
-      "@leonardo/rick-and-morty-api/server": [
-        "libs/api/rick-and-morty-api/src/server.ts"
-      ],
-      "@leonardo/theme": ["libs/util/theme/src/index.ts"],
-      "@leonardo/theme/server": ["libs/util/theme/src/server.ts"]
+      "@leonardo/theme": ["libs/util/theme/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
