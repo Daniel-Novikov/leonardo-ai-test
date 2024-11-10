@@ -2,7 +2,10 @@
   "name": "@leonardo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "npx nx dev leonardo-test",
+    "build": "npx nx build leonardo-test"
+  },
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.11.9",

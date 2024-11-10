@@ -1,10 +1,5 @@
 'use client';
-import {
-  Dialog,
-  Fieldset,
-  Stack,
-  type DialogRootProps,
-} from '@chakra-ui/react';
+import { Dialog, Fieldset } from '@chakra-ui/react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useProfileStore } from '@leonardo/profile-store';
