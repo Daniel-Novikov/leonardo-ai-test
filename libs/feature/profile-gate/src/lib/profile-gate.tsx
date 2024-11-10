@@ -1,5 +1,7 @@
+'use client';
 import { useProfileStore } from '@leonardo/profile-store';
 import { ReactNode } from 'react';
+import { Spinner, Center } from '@chakra-ui/react';
 
 import { ProfileSetupPage } from '@leonardo/profile-setup-page';
 
@@ -9,6 +11,19 @@ type ProfileGateProps = {
 
 export const ProfileGate = ({ children }: ProfileGateProps) => {
   const profile = useProfileStore((state) => state.profile);
+  const isProfileLoaded = useProfileStore((state) => state.isProfileLoaded);
 
-  return !profile ? <ProfileSetupPage /> : children;
+  if (!isProfileLoaded) {
+    return (
+      <Center height="100%">
+        <Spinner />
+      </Center>
+    );
+  }
+
+  if (!profile) {
+    return <ProfileSetupPage />;
+  }
+
+  return children;
 };
