@@ -18,13 +18,12 @@ export const ProfileSetupPage = () => {
 
   const { handleSubmit } = methods;
   const onSubmit = (data: ProfileFormValues) => {
-    console.log('onSubmit', data);
     setProfile(data);
   };
 
   return (
     <FormProvider {...methods}>
-      <Center h="100%">
+      <Center minH="100vh" p="6">
         <Card.Root width="100%" maxWidth="500px">
           <Card.Body>
             <form onSubmit={handleSubmit(onSubmit)}>

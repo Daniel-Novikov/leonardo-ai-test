@@ -31,7 +31,7 @@ const variantMap: Record<
 } as const;
 
 type RootPropsContext = {
-  size: 'sm' | 'md' | 'lg';
+  size: ButtonProps['size'];
   variantMap: {
     default: ButtonProps['variant'];
     ellipsis: ButtonProps['variant'];
@@ -50,7 +50,7 @@ type PageItem = {
 };
 
 type PaginationRootProps = {
-  size?: 'sm' | 'md' | 'lg';
+  size?: ButtonProps['size'];
   variant?: keyof typeof variantMap;
   getHref?: (page: number) => string;
 } & ChakraPaginationRootProps;
@@ -87,7 +87,7 @@ export const PaginationEllipsis = (props: PaginationEllipsisProps) => {
   const { size, variantMap } = useRootProps();
   return (
     <ChakraPagination.Ellipsis {...props}>
-      <Button as="span" variant={variantMap.ellipsis} size={size}>
+      <Button as="span" variant={variantMap.ellipsis} px="0" size={size}>
         <HiMiniEllipsisHorizontal />
       </Button>
     </ChakraPagination.Ellipsis>

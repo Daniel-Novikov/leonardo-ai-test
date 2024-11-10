@@ -15,8 +15,8 @@ export const ProfileGate = ({ children }: ProfileGateProps) => {
 
   if (!isProfileLoaded) {
     return (
-      <Center height="100%">
-        <Spinner />
+      <Center height="100vh">
+        <Spinner size="xl" />
       </Center>
     );
   }

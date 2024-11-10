@@ -4,7 +4,7 @@ import {
   Stack,
   Box,
   Image,
-  HStack,
+  SimpleGrid,
   Table,
   Heading,
   Text,
@@ -46,34 +46,9 @@ export const Content = ({ character, error, loading }: ContentProps) => {
   ];
 
   return (
-    <HStack alignItems="start" gap="4">
-      <Stack gap="2" flex="0 0 40%">
-        <Table.Root variant="outline">
-          <Table.Header>
-            <Table.Row>
-              <Table.ColumnHeader colSpan={2}>
-                <Heading size="sm">Information</Heading>
-              </Table.ColumnHeader>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body verticalAlign="baseline">
-            {items.map((item) => (
-              <Table.Row>
-                <Table.Cell fontWeight="bold">{item.label}</Table.Cell>
-                <Table.Cell>
-                  {loading ? (
-                    <Skeleton width="100px" height="10px" />
-                  ) : (
-                    item.value
-                  )}
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table.Root>
-      </Stack>
+    <SimpleGrid alignItems="start" gap="4" minChildWidth="250px">
       {loading ? (
-        <Skeleton boxSize="300px" />
+        <Skeleton boxSize="300px" maxWidth="100%" />
       ) : (
         <Image asChild borderRadius="md" bgColor="gray.100">
           {character?.image ? (
@@ -91,6 +66,31 @@ export const Content = ({ character, error, loading }: ContentProps) => {
           ) : null}
         </Image>
       )}
-    </HStack>
+      <Stack gap="2" flex="0 0 40%">
+        <Table.Root variant="outline">
+          <Table.Header>
+            <Table.Row>
+              <Table.ColumnHeader colSpan={2}>
+                <Heading size="sm">Information</Heading>
+              </Table.ColumnHeader>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body verticalAlign="baseline">
+            {items.map((item) => (
+              <Table.Row key={item.label}>
+                <Table.Cell fontWeight="bold">{item.label}</Table.Cell>
+                <Table.Cell>
+                  {loading ? (
+                    <Skeleton width="100px" height="10px" />
+                  ) : (
+                    item.value
+                  )}
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table.Root>
+      </Stack>
+    </SimpleGrid>
   );
 };

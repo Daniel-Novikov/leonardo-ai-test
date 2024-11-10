@@ -29,16 +29,26 @@ export const Header = () => {
         py="2"
         borderBottomWidth="1px"
       >
-        <Flex align="center" justifyContent="space-between">
+        <Flex align="center" gap="6" justifyContent="space-between">
           <Heading size="md">The Rick and Morty: Characters</Heading>
-          <Button variant="plain" onClick={() => setOpen(true)}>
+          <Button variant="plain" onClick={() => setOpen(true)} p="0">
             <HStack gap="2">
-              <Avatar.Root bgColor="green.300" size="xs" />
+              <Avatar.Root
+                bgColor="green.300"
+                size={{ base: '2xs', sm: 'xs' }}
+              />
               <Box textAlign="left">
                 <Text fontWeight="bold" fontSize="sm" mb="-1">
                   {profile?.username}
                 </Text>
-                <Text fontSize="xs">{profile?.jobTitle}</Text>
+                <Text
+                  fontSize="xs"
+                  textOverflow="ellipsis"
+                  overflow="hidden"
+                  maxWidth={{ base: '100px', sm: 'none' }}
+                >
+                  {profile?.jobTitle}
+                </Text>
               </Box>
             </HStack>
           </Button>

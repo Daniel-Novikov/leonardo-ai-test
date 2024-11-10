@@ -23,7 +23,7 @@ export const CharacterDialog = ({
       <Dialog.Backdrop />
       <Dialog.Positioner>
         <Dialog.Content>
-          <Dialog.Header>
+          <Dialog.Header pr="20">
             <Skeleton asChild loading={loading}>
               <Dialog.Title>{character?.name || 'Not found'}</Dialog.Title>
             </Skeleton>

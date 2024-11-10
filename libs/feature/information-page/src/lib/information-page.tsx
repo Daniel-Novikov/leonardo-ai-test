@@ -71,8 +71,10 @@ export function InformationPage() {
               page={page}
               onPageChange={(e: { page: number }) => goToPage(e.page)}
               variant="subtle"
+              size="xs"
+              fontSize="2xs"
             >
-              <HStack>
+              <HStack gap={{ base: '0', sm: '2' }}>
                 <PaginationPrevTrigger />
                 <PaginationItems />
                 <PaginationNextTrigger />
