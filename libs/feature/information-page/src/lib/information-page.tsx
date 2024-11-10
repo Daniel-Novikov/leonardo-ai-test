@@ -18,6 +18,7 @@ import {
 
 import { CharacterCard } from '@leonardo/character-card';
 import { useCharacters } from '@leonardo/rick-and-morty-api';
+import { CharacterDialog } from '@leonardo/character-dialog';
 
 export function InformationPage() {
   const { loading, error, characters, pageInfo, pageSize, page, goToPage } =
@@ -59,6 +60,8 @@ export function InformationPage() {
           <PaginationNextTrigger />
         </HStack>
       </PaginationRoot>
+
+      <CharacterDialog />
     </Stack>
   );
 }

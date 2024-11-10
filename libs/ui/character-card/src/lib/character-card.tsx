@@ -7,15 +7,23 @@ type CharacterCardProps = {
   image: string;
   name: string;
   description: string;
+  onClick?(): void;
 };
 
 export function CharacterCard({
   image,
   name,
   description,
+  onClick,
 }: CharacterCardProps) {
   return (
-    <Card.Root position="relative" variant="elevated" overflow="hidden">
+    <Card.Root
+      position="relative"
+      variant="elevated"
+      overflow="hidden"
+      cursor="pointer"
+      onClick={onClick}
+    >
       <NextImage
         src={image}
         alt={name}

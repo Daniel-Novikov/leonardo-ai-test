@@ -20,6 +20,12 @@
       "@leonardo/character-card/server": [
         "libs/ui/character-card/src/server.ts"
       ],
+      "@leonardo/character-dialog": [
+        "libs/feature/character-dialog/src/index.ts"
+      ],
+      "@leonardo/character-dialog/server": [
+        "libs/feature/character-dialog/src/server.ts"
+      ],
       "@leonardo/header": ["libs/feature/header/src/index.ts"],
       "@leonardo/header/server": ["libs/feature/header/src/server.ts"],
       "@leonardo/information-page": [
