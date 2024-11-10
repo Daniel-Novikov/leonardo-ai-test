@@ -32,6 +32,7 @@ export const Header = () => {
         px="6"
         py="2"
         borderBottomWidth="1px"
+        as="header"
       >
         <Flex align="center" gap="6" justifyContent="space-between">
           <Heading size="md">The Rick and Morty: Characters</Heading>
