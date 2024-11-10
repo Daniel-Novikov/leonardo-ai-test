@@ -34,6 +34,14 @@
         "libs/feature/profile-setup-page/src/index.ts"
       ],
       "@leonardo/profile-store": ["libs/util/profile-store/src/index.ts"],
+      "@leonardo/provider": ["libs/feature/provider/src/index.ts"],
+      "@leonardo/provider/server": ["libs/feature/provider/src/server.ts"],
+      "@leonardo/rick-and-morty-api": [
+        "libs/api/rick-and-morty-api/src/index.ts"
+      ],
+      "@leonardo/rick-and-morty-api/server": [
+        "libs/api/rick-and-morty-api/src/server.ts"
+      ],
       "@leonardo/theme": ["libs/util/theme/src/index.ts"],
       "@leonardo/theme/server": ["libs/util/theme/src/server.ts"]
     }

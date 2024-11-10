@@ -1,4 +1,4 @@
-import { Provider } from '@leonardo/chakra-ui';
+import { Provider } from '@leonardo/provider';
 
 import { ProfileGate } from '@leonardo/profile-gate';
 

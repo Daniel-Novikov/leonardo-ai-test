@@ -1,0 +1,9 @@
+{
+  "name": "rick-and-morty-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/api/rick-and-morty-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project rick-and-morty-api --web",
+  "targets": {}
+}

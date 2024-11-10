@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { InformationPage } from '@leonardo/information-page';
 
 export default function Index() {
-  return <>Information</>;
+  return <InformationPage />;
 }
