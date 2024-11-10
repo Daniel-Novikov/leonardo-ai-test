@@ -33,7 +33,6 @@ export function InformationPage() {
 
   if (error) return <Text>Error loading characters</Text>;
 
-  console.log('characters', characters);
   return (
     <Stack>
       <Grid templateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap={6}>

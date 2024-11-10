@@ -111,11 +111,9 @@ export const PaginationItem = (props: PaginationItemProps) => {
   }
 
   return (
-    <ChakraPagination.Item {...props}>
-      <Button variant={variant} size={size}>
-        {props.value}
-      </Button>
-    </ChakraPagination.Item>
+    <Button as={ChakraPagination.Item} variant={variant} size={size} {...props}>
+      {props.value}
+    </Button>
   );
 };
 
@@ -137,11 +135,14 @@ export const PaginationPrevTrigger = (props: PaginationPrevNextProps) => {
   }
 
   return (
-    <ChakraPagination.PrevTrigger {...props}>
-      <IconButton variant={variantMap?.default} size={size}>
-        <HiChevronLeft />
-      </IconButton>
-    </ChakraPagination.PrevTrigger>
+    <IconButton
+      as={ChakraPagination.PrevTrigger}
+      variant={variantMap?.default}
+      size={size}
+      {...props}
+    >
+      <HiChevronLeft />
+    </IconButton>
   );
 };
 
@@ -163,11 +164,14 @@ export const PaginationNextTrigger = (props: PaginationPrevNextProps) => {
   }
 
   return (
-    <ChakraPagination.NextTrigger {...props}>
-      <IconButton variant={variantMap?.default} size={size}>
-        <HiChevronRight />
-      </IconButton>
-    </ChakraPagination.NextTrigger>
+    <IconButton
+      as={ChakraPagination.NextTrigger}
+      variant={variantMap?.default}
+      size={size}
+      {...props}
+    >
+      <HiChevronRight />
+    </IconButton>
   );
 };
 
