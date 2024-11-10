@@ -31,6 +31,12 @@
       "@leonardo/information-page": [
         "libs/feature/information-page/src/index.ts"
       ],
+      "@leonardo/profile-edit-dialog": [
+        "libs/feature/profile-edit-dialog/src/index.ts"
+      ],
+      "@leonardo/profile-edit-dialog/server": [
+        "libs/feature/profile-edit-dialog/src/server.ts"
+      ],
       "@leonardo/profile-form": ["libs/feature/profile-form/src/index.ts"],
       "@leonardo/profile-form/server": [
         "libs/feature/profile-form/src/server.ts"

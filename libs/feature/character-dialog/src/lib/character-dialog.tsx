@@ -1,6 +1,6 @@
 'use client';
 
-import { Dialog, Button, Spinner, Text } from '@chakra-ui/react';
+import { Dialog, Spinner, Text } from '@chakra-ui/react';
 
 import { useCharacter } from '@leonardo/rick-and-morty-api';
 import { CloseButton } from '@leonardo/chakra-ui';
