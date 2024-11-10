@@ -7,6 +7,7 @@ import {
   Stack,
   HStack,
   Box,
+  Spinner,
 } from '@chakra-ui/react';
 
 import {
@@ -29,21 +30,31 @@ export const InformationPage = () => {
   const { loading, error, characters, pageInfo, pageSize, page, goToPage } =
     useCharacters();
 
-  const characterGridItems = useMemo(
-    () =>
-      characters?.map((character) => (
-        <GridItem key={character.id}>
-          <CharacterCard
-            loading={loading}
-            image={character.image}
-            name={character.name}
-            onClick={() => setSelectedCharacterId(character.id)}
-            description={`${character.species} - ${character.status}`}
-          />
-        </GridItem>
-      )),
-    [characters, loading, setSelectedCharacterId]
-  );
+  const characterGrid = useMemo(() => {
+    if (loading && !characters) {
+      return (
+        <Center height="80vh">
+          <Spinner size="xl" />
+        </Center>
+      );
+    }
+
+    return (
+      <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
+        {characters?.map((character) => (
+          <GridItem key={character.id}>
+            <CharacterCard
+              loading={loading}
+              image={character.image}
+              name={character.name}
+              onClick={() => setSelectedCharacterId(character.id)}
+              description={`${character.species} - ${character.status}`}
+            />
+          </GridItem>
+        ))}
+      </Grid>
+    );
+  }, [characters, loading, setSelectedCharacterId]);
 
   if (error)
     return (
@@ -72,9 +83,7 @@ export const InformationPage = () => {
         <Text>{loadingMessage}</Text>
       </Box>
 
-      <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
-        {characterGridItems}
-      </Grid>
+      {characterGrid}
 
       {pageInfo ? (
         <Center position="fixed" left="0" width="100%" bottom="3">
