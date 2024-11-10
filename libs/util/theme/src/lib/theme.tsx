@@ -2,8 +2,11 @@ import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react';
 
 const config = defineConfig({
   globalCss: {
-    'html, body, #root': {
+    'html, #root': {
       height: '100%',
+    },
+    body: {
+      minHeight: '100%',
     },
   },
 });

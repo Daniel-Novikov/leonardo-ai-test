@@ -1,6 +1,7 @@
 import { Provider } from '@leonardo/provider';
 
 import { ProfileGate } from '@leonardo/profile-gate';
+import { Header } from '@leonardo/header';
 
 export const metadata = {
   title: 'Welcome to leonardo-test',
@@ -16,7 +17,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <Provider>
-          <ProfileGate>{children}</ProfileGate>
+          <ProfileGate>
+            <Header />
+            {children}
+          </ProfileGate>
         </Provider>
       </body>
     </html>

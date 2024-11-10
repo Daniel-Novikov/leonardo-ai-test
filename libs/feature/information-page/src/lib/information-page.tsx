@@ -41,7 +41,7 @@ export function InformationPage() {
 
   return (
     <Stack p="6" pb="20">
-      <Grid templateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap={6}>
+      <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))" gap={6}>
         {characters?.map((character) => (
           <GridItem key={character.id}>
             <CharacterCard
